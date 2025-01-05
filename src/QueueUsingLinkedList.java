@@ -1,43 +1,44 @@
 import java.util.LinkedList;
 
 public class QueueUsingLinkedList {
-    private LinkedList<Integer>queue;
+    private LinkedList<Integer> queue;
 
-    public QueueUsingLinkedList(){
+    public QueueUsingLinkedList() {
         queue = new LinkedList<>();
     }
 
-    //Enqueue method to add elements to the queue (at end of list)
-    public void enqueue(int value){
-        queue.addLast(value);
+    // Enqueue method to add elements to the queue (at the end of the list)
+    public void enqueue(int value) {
+        queue.addLast(value); // Adds the element at the end of the list (rear of the queue)
     }
 
-    //Dequeue method to remove front element from queue
-    public int dequeue(){
-        if(isEmpty()){
-            throw new IllegalStateException(("Queue is empty."));
+    // Dequeue method to remove the front element from the queue (beginning of the list)
+    public int dequeue() {
+        if (isEmpty()) {
+            throw new IllegalStateException("Queue is empty");
         }
-        return queue.removeFirst();
+        return queue.removeFirst(); // Removes the element from the front (beginning of the queue)
     }
 
-    //peek method to view front element of queue
-    public int peek(){
-        if(isEmpty()){
-            throw new IllegalStateException(("Queue is empty."));
+    // Peek method to view the front element of the queue
+    public int peek() {
+        if (isEmpty()) {
+            throw new IllegalStateException("Queue is empty");
         }
-        return queue.getFirst();
+        return queue.getFirst(); // Returns the first element (front of the queue)
     }
 
-    public boolean isEmpty(){
+    // Check if the queue is empty
+    public boolean isEmpty() {
         return queue.isEmpty();
     }
 
-    //display
-    public void displayQueue(){
+    // Display the queue elements (for visualization)
+    public void displayQueue() {
         System.out.println("Queue: " + queue);
     }
 
-    public static void main(String[] args){
+    public static void main(String[] args) {
         QueueUsingLinkedList queue = new QueueUsingLinkedList();
 
         // Enqueuing elements into the queue
@@ -48,12 +49,12 @@ public class QueueUsingLinkedList {
         // Displaying the queue
         queue.displayQueue(); // Output: Queue: [56, 30, 70]
 
-        // Dequeuing elements and peeking at the front element
+        // Dequeuing elements from the beginning and peeking at the front element
         while (!queue.isEmpty()) {
             // Peeking the front element
             System.out.println("Front element (peek): " + queue.peek());
 
-            // Dequeuing the front element
+            // Dequeuing the front element (beginning of the list)
             System.out.println("Dequeued element: " + queue.dequeue());
         }
     }
